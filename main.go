@@ -1,7 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"github.com/Hugo0Vaz/go-rere/cmd"
+)
 
 func main() {
-	fmt.Println("go-rere - Record and Replay")
+	cmd.Execute()
 }
