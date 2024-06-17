@@ -1,13 +1,15 @@
-OUT      := grr
-PKG      := github.com/Hugo0vaz/go-rere
-VERSION  := $(shell git describe --always --long --dirty)
-PKG_LIST := $(shell go list ${PKG}/... | grep -v /vendor/)
-GO_FILES := $(shell find . -name '*.go' | grep -v /vendor/)
-
 build:
 	@go build -o ./build/grr
+
+test:
+	@go test -short ${PKG_LIST}
+
+lint:
+	@for file in ${GO_FILES} ; do \
+		golint $$file ; \
+	done
 
 run: build
 	@./build/grr
 
-.PHONY: build run
+.PHONY: build test lint run
