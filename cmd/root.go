@@ -8,7 +8,8 @@ import (
 	"github.com/spf13/cobra"
 )
 
-const VERSION = "0.0.1"
+var Version string
+var Commit string
 
 var replayCmd = &cobra.Command{
 	Use:   "replay",
@@ -44,7 +45,7 @@ var versionCmd = &cobra.Command{
 	Use:   "version",
 	Short: "Prints the version of the go rere tool.",
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("Golang Record and Replay -- v", VERSION)
+		fmt.Println("Golang Record and Replay -- v", Version)
 	},
 }
 
@@ -53,7 +54,7 @@ var rootCmd = &cobra.Command{
 	Short: "golang record and replay",
 	Long:  `Go implementation of Tsoding's python "Record and Replay" (pyrere).`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("Golang Record and Replay -- v", VERSION)
+		fmt.Println("Golang Record and Replay -- v", Version)
 	},
 }
 
